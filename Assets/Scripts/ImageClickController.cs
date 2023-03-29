@@ -5,26 +5,38 @@ using UnityEngine.UI;
 
 public class ImageClickController : MonoBehaviour
 {
-    public Button button1;
-    public Button button2;
+    public Button button1Des;
+    public Button button2Des;
+
+    public Button button1Apc;
+    public Button button2Apc;
+
     private bool state = false;
+    private string nomButton = "";
 
     void Start(){
-    button2.gameObject.SetActive(false);
+    button1Apc.gameObject.SetActive(false);
+    button2Apc.gameObject.SetActive(false);
     }
 
-    public void OnClickButton1(){
-        Debug.Log("Se ha hecho clic en el botón 1.");
+    public void OnClickButton1(Button buttondes){
+        Debug.Log("Se ha hecho clic en el" + buttondes.name);
+        nomButton = buttondes.name;
         state = true;
     }
 
     public void OnClickButton2(){
-        Debug.Log("Se ha hecho clic en el botón 2.");
-        if(state){
-            button2.gameObject.SetActive(true);
-            Destroy(button1.gameObject, 0.5f);
+        if (state){
+            switch(nomButton){
+                case "LevelBtn":
+                    button1Apc.gameObject.SetActive(true);
+                break;
+                case "LevelBtn (1)":
+                    button2Apc.gameObject.SetActive(true);
+                break;
+            }
             state = false;
-            Debug.Log(state);
+            nomButton = "";
         }
-    }   
+    }
 }

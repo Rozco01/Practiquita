@@ -38,7 +38,7 @@ public class MoveTriangle : MonoBehaviour
             {
                 if (!isInsideSquare)
                 {
-                    transform.position = new Vector3(1.5f, 2f, -1);
+                    transform.position = new Vector3(2.5f, 2.7f, -1);
                     isInsideSquare = true;
                 }
             }
